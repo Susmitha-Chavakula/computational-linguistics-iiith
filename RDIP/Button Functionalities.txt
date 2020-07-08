@@ -1,0 +1,18 @@
+Functionalities of Button
+~~~~~~~~~~~~~~~~~~~
+
+After selecting a language from drop down, you will have a buttons of jumbled words in which you have to make a gramatically correct sentence by choosing one button at a time.
+
+*Existing Functionalities of Buttons:
+  =======================
+    (i). Re-form the sentence : If you think that you selected a wrong sentence then by clicking this button you can re-form the sentence again. It is same as RESET button.
+    (ii). Check the correctness of this sentence: After selecting all the buttons to form a sentence you think is correct, this can be clicked to view the status of your answering.
+    (iii). Get correct sentence: If your sentence is correct, then you can't see this button. After checking the correctness of your sentence, if you are displayed by "WRONG ANSWER" then you can click on this button to know the correct and possible sentences. 
+    (iv). Hide the correct Sentence: By clicking this button you can hide the displayed answers.
+    (v). Get Answers: After hiding the displayed answers, you can again get the possible answers by clicking this button.
+
+
+*Extra Buttons to be added:
+  =================
+    (i). Backspace: This button is helpful when we are halfway or away from start i.e if we think that the just selected word(button) is wrong or if we want to delete this word and then select the required word(button) you think is correct.
+    (ii). Show all the answers: After displaying "Right answer!!!", if this button is avialable then we can be able to know all the possible answers by clicking this button.
