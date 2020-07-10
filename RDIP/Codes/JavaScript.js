@@ -19,4 +19,13 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
-			       
+			 
+
+function langsel() {
+    if(document.getElementById("eng").selected || document.getElementById("hin").selected) {
+		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
+		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
+    }
+    else if(document.getElementById("default").selected)
+		alert('Select Language');
+}
