@@ -20,12 +20,60 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
 			 
-
-function langsel() {
-    if(document.getElementById("eng").selected || document.getElementById("hin").selected) {
+function langsel(){	
+    if(document.getElementById("eng").selected){
 		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
-    }
+    		getRandomengSentence();
+	}
+    else if(document.getElementById("hin").selected) {
+		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
+		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
+    		getRandomhinSentence();
+	}
     else if(document.getElementById("default").selected)
 		alert('Select Language');
+}
+function getRandomengSentence() {
+	var sentind = parseInt(Math.random()*(10));
+	var engrand = obj.sentences[sentind].firstsent;
+	var sentsplit = engrand.split(" ");
+	var arr=[];
+	for( var  i = 0 ;i<sentsplit.length;i++) {
+		arr[i]=0;
+	}
+	var k,btnidval="",addbtn="",btnid=0;
+	var len = sentsplit.length;
+	while(btnid!=(len)) {
+		k = sentsplit[parseInt(Math.random()*(len))];
+		if(arr[sentsplit.indexOf(k)]==0) {
+		arr[sentsplit.indexOf(k)]=1;
+		sentsplit[sentsplit.indexOf(k)] = "";
+		btnid++;
+		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"'>"+k+"</button>";
+		addbtn = addbtn + btnidval;
+		}
+		randbtn.innerHTML = addbtn.trim();
+	}
+}
+function getRandomhinSentence() {
+	var sentind = parseInt(Math.random()*(7));
+	var hinrand = obj1.sentences[sentind].firstsent;
+	var sentsplit = hinrand.split(" ");
+	var arr=[];
+	for( var  i = 0 ;i<sentsplit.length;i++) {
+		arr[i]=0;
+	}
+	var k,btnidval="",addbtn="",btnid=0;
+	var len = sentsplit.length;
+	while(btnid!=(len)) {
+		k = sentsplit[parseInt(Math.random()*(len))];
+		if(arr[sentsplit.indexOf(k)]==0 ) {
+		arr[sentsplit.indexOf(k)]=1;
+		btnid++;
+		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"'>"+k+"</button>";
+		addbtn = addbtn + btnidval;
+		}
+		randbtn.innerHTML = addbtn.trim();
+	}
 }

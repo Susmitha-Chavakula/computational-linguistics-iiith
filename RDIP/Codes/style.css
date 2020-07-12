@@ -3,72 +3,16 @@
    padding : 0;
 }
 body {
-   margin-left : 140px;
-   background-color : #001133;
+	text-align : center;
 }
-h3 {
-   font-family : arial;
-   font-size : 23px;
-   text-transform : uppercase;
-   background-color : #0066cc;
-   color : white;
-   font-weight : 550;
-   margin-right : 142px;
-   padding : 5px;
-   padding-left : 23px;
-   border : 1px solid white;
-}
-p {
-   font-family : arial;
-   font-size : 17px;
-   color : white;
-   padding : 5px;
-   padding-left : 10px;
-}
-.back-imag {
-   margin-right : 143px;
-   padding : 15px;
-   padding-left : 28px;
-   background-color : #e9f6fb;
-}
-.back-imag h1 {
-   font-size : 48px;
-   font-family : Palatino Linotype;
-   font-weight : 500;
-}   
-.content {
-   background-color : white;
-   margin-right : 143px;
-   padding-left : 27px;
-   padding-bottom : 18px;
-}   
-table{
-   width : 65%;
-}
-td {
-   padding : 5px;
-}   
-.content p{
-   text-transform : uppercase;
-   font-size : 16px;
-   color : black;
-   text-decoration : underline;
-}
-
 h2 {
-   background-color : white;
-   margin-right : 143px;
+   text-align : left;
    font-family : Times New Roman;
    font-size : 25px;
    font-weight : 450;
-   padding-left : 42px;
 }
 .dropdown {
-   text-align : center;
-   margin-right : 143px;
    padding-top : 20px;
-   background-color : white;
-   padding-bottom : 300px; 
 }
 #dropdownbox {
    height : 22px;
@@ -79,17 +23,16 @@ h2 {
    color : #0000AA;
    font-weight : 700;
    font-size : 16px;
-   margin-right : 143px;
    padding-top : 80px;
-   margin-left : 80px;
-   background-color : white;
 }
 .displaytxt2 p {
    color : #0000FF;
    font-size : 14px;
-   margin-right : 143px;
    font-style : italic;
-   margin-left : 86px;
-   background-color : white;
+   padding-bottom : 20px;
 }
-   
+button {
+   padding : 3px;
+   margin : 15px;
+   float : center;
+}

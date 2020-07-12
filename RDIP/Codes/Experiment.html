@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+	<meta charset = "UTF-8">
         <title>Virtual Labs</title>
 	<link rel="icon" href="..\..\.\RDIP\..\src\.\themes\maroon-grid\images\logo.jpg" type="image/x-icon">
 
@@ -9,45 +10,24 @@
 </head>
 
 <body>
-   <img src="..\..\.\RDIP\..\src\.\themes\blue-icon\images\logo.jpg">
    
-   <h3>Computational Linguistics Lab</h3>
-   <img src="..\..\.\RDIP\..\src\.\themes\blue-icon\images\header_03.jpg">
-   
-   <p> Home > Computational Linguistics Lab > Forming Sentences -2</p>
- 
-   <div class="back-imag">
-   <h1>Forming Sentences - 2</h1>
-   </div>
-   
-   <div class="content">
-   <table>
-     <tr>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\introduction.jpg"><p>Introduction</p></td>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\theory.jpg"><p>Theory</p></td>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\objective.jpg"><p>Objective</p></td>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\simulation.jpg"><p>Experiment</p></td>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\quizzes.jpg"><p>Quizzes</p></td>
-   	<td><img src="..\..\.\RDIP\..\src\.\lab\images\procedure.jpg"><p>Procedure</p></td>
-      </tr>
-   </table></div>
-
    <h2>Experiment</h2>
    
    <div class="dropdown">
-	<select onchange="langsel()" id="dropdownbox">
+	<select id="dropdownbox" onchange="langsel()">
 	      <option id="default" value="Select Language">---Select Language---</option>
 	      <option id="eng" value="English">English</option>
    	      <option id="hin" value="Hindi">Hindi</option>
     	</select>
    
-
 	<div class="displaytxt1">
 		<p id="demo"></p>
 	</div>
 	<div class="displaytxt2">
 	        <p id="innerdemo"></p>
         </div>
-   </div>
+	<p id = "randbtn"></p>
+    </div>
+	
    </body>
 </html>
