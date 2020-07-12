@@ -19,8 +19,16 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
+var formedsent = "";
 			 
 function langsel(){	
+    if(document.getElementById("default").selected)
+		alert('Select Language');
+    else {
+	document.getElementById("innersentdemo").innerHTML = "";
+	document.getElementById("formedsent").innerHTML = "";
+	document.getElementById("reformbtn").innerHTML = "";
+	formedsent = "";
     if(document.getElementById("eng").selected){
 		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
@@ -31,8 +39,7 @@ function langsel(){
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
     		getRandomhinSentence();
 	}
-    else if(document.getElementById("default").selected)
-		alert('Select Language');
+    }
 }
 function getRandomengSentence() {
 	var sentind = parseInt(Math.random()*(10));
@@ -42,7 +49,7 @@ function getRandomengSentence() {
 	for( var  i = 0 ;i<sentsplit.length;i++) {
 		arr[i]=0;
 	}
-	var k,btnidval="",addbtn="",btnid=0;
+	var k,btnidval="",addbtn="",btnid=0,formedsent="";
 	var len = sentsplit.length;
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
@@ -50,7 +57,7 @@ function getRandomengSentence() {
 		arr[sentsplit.indexOf(k)]=1;
 		sentsplit[sentsplit.indexOf(k)] = "";
 		btnid++;
-		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"'>"+k+"</button>";
+		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"' onclick = 'disword(this.id, this.value)'>"+k+"</button>";
 		addbtn = addbtn + btnidval;
 		}
 		randbtn.innerHTML = addbtn.trim();
@@ -64,16 +71,25 @@ function getRandomhinSentence() {
 	for( var  i = 0 ;i<sentsplit.length;i++) {
 		arr[i]=0;
 	}
-	var k,btnidval="",addbtn="",btnid=0;
+	var k,btnidval="",addbtn="",btnid=0,formedsent="";
 	var len = sentsplit.length;
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
 		if(arr[sentsplit.indexOf(k)]==0 ) {
 		arr[sentsplit.indexOf(k)]=1;
 		btnid++;
-		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"'>"+k+"</button>";
+		btnidval = "<button id = 'btnid"+btnid+"' value = '"+k+"' onclick = 'disword(this.id, this.value)'>"+k+"</button>";
 		addbtn = addbtn + btnidval;
 		}
 		randbtn.innerHTML = addbtn.trim();
 	}
+}
+
+function disword( btnid, btnvalue ) {
+	document.getElementById("reformbtn").innerHTML = "<button>Re-form the sentence</button>";
+	document.getElementById("innersentdemo").innerHTML = "Formed Sentence (<i>after selecting words</i>):";
+	formedsent = formedsent + btnvalue +" ";
+	document.getElementById("formedsent").innerHTML = formedsent;
+	var removebtn = document.getElementById(btnid);
+	removebtn.remove();
 }

@@ -13,26 +13,28 @@ h2 {
 }
 .dropdown {
    padding-top : 20px;
-}
+   }
 #dropdownbox {
    height : 22px;
    font-family : arial;
    font-size : 17px;
 }
-.displaytxt1 p {
+.displaytxt1 p, .displaytxt3 p{
    color : #0000AA;
    font-weight : 700;
    font-size : 16px;
-   padding-top : 80px;
 }
-.displaytxt2 p {
+.displaytxt2 p, .displaytxt3 i{
    color : #0000FF;
    font-size : 14px;
    font-style : italic;
-   padding-bottom : 20px;
 }
 button {
    padding : 3px;
    margin : 15px;
    float : center;
+}
+.displayformedsent p {
+   font-size : 30px;
+   font-style : bold;
 }
