@@ -33,6 +33,7 @@ function langsel(){
 	formedwordcnt = 0;
 	document.getElementById("checkw").innerHTML = "";
 	document.getElementById("checkr").innerHTML = "";
+	document.getElementById("crtansbtn").innerHTML = "";
     if(document.getElementById("eng").selected){
 		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
@@ -112,6 +113,7 @@ function reform() {
 	document.getElementById("chkbtn").innerHTML = "";
 	document.getElementById("checkr").innerHTML = "";
 	document.getElementById("checkw").innerHTML = "";
+	document.getElementById("crtansbtn").innerHTML = "";
 }
 
 function check() {
@@ -120,6 +122,7 @@ function check() {
 		document.getElementById("checkr").innerHTML = "Right answer!!!";
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
+		document.getElementById("crtansbtn").innerHTML = "<button>Get Correct Sentence</button>";
 		}
 	}
 	else if(document.getElementById("hin").selected) {
@@ -127,6 +130,7 @@ function check() {
 		document.getElementById("checkr").innerHTML = "Right answer!!!";
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
+		document.getElementById("crtansbtn").innerHTML = "<button>Get Correct Sentence</button>";
 		}
 	}			
 }	
