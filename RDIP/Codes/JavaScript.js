@@ -19,7 +19,7 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
-var formedsent = "";
+var formedsent = "",addbtn="";
 			 
 function langsel(){	
     if(document.getElementById("default").selected)
@@ -49,8 +49,9 @@ function getRandomengSentence() {
 	for( var  i = 0 ;i<sentsplit.length;i++) {
 		arr[i]=0;
 	}
-	var k,btnidval="",addbtn="",btnid=0,formedsent="";
+	var k,btnidval="",btnid=0,formedsent="";
 	var len = sentsplit.length;
+	addbtn = "";
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
 		if(arr[sentsplit.indexOf(k)]==0) {
@@ -71,8 +72,9 @@ function getRandomhinSentence() {
 	for( var  i = 0 ;i<sentsplit.length;i++) {
 		arr[i]=0;
 	}
-	var k,btnidval="",addbtn="",btnid=0,formedsent="";
+	var k,btnidval="",btnid=0,formedsent="";
 	var len = sentsplit.length;
+	addbtn = "";
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
 		if(arr[sentsplit.indexOf(k)]==0 ) {
@@ -86,10 +88,17 @@ function getRandomhinSentence() {
 }
 
 function disword( btnid, btnvalue ) {
-	document.getElementById("reformbtn").innerHTML = "<button>Re-form the sentence</button>";
+	document.getElementById("reformbtn").innerHTML = "<button onclick = 'reform()'>Re-form the sentence</button>";
 	document.getElementById("innersentdemo").innerHTML = "Formed Sentence (<i>after selecting words</i>):";
 	formedsent = formedsent + btnvalue +" ";
 	document.getElementById("formedsent").innerHTML = formedsent;
 	var removebtn = document.getElementById(btnid);
 	removebtn.remove();
+}
+function reform() {
+	document.getElementById("randbtn").innerHTML = addbtn.trim();
+	document.getElementById("formedsent").innerHTML = "";
+	document.getElementById("innersentdemo").innerHTML ="";
+	document.getElementById("reformbtn").innerHTML = "";
+	formedsent = "";
 }
