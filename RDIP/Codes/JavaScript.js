@@ -12,14 +12,15 @@ obj = JSON.parse(engsent);
 
 
 var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम बाजार गयें", "secondsent":"राम और श्याम गयें बाजार", "thirdsent":"बाजार गयें राम और श्याम" , "fourthsent":"गयें बाजार राम और श्याम"},' +
-			       '{"firstsent":"राम सोया और श्याम भी", "secondsent":"श्याम सोया और राम भी", "thirdsent":"सोया श्याम और राम भी" , "fourthsent":"सोया राम और श्याम भी"},' +
-			       '{"firstsent":"मैंने उसे बताया कि राम सो रहा है", "secondsent":"मैंने उसे बताया कि सो रहा है राम", "thirdsent":"उसे मैंने बताया कि राम सो रहा है", "fourthsent":"उसे मैंने बताया कि सो रहा है राम", "fifthsent":"मैंने बताया उसे कि राम सो रहा है", "sixthsent":"मैंने बताया उसे कि सो रहा है राम", "seventhsent":"उसे बताया मैंने कि राम सो रहा है", "eightsent":"उसे बताया मैंने कि सो रहा है राम", "ninthsent":"बताया मैंने उसे कि राम सो रहा है", "tenthsent":"बताया मैंने उसे कि सो रहा है राम", "eleventhsent":"बताया उसे मैंने कि राम सो रहा है", "twelvesent":"बताया उसे मैंने कि सो रहा है राम" },' +
-			       '{"firstsent":"राम खाकर सोया", "secondsent":"खाकर राम सोया", "thirdsent":"राम सोया खाकर" , "fourthsent":"खाकर सोया राम", "fifthsent":"सोया राम खाकर", "sixthsent":"सोया खाकर राम"},' +
-			       '{"firstsent":"बिल्लियों को मारकर कुत्ता सो गया", "secondsent":"मारकर बिल्लियों को कुत्ता सो गया", "thirdsent":"बिल्लियों को मारकर सो गया कुत्ता" , "fourthsent":"मारकर बिल्लियों को सो गया कुत्ता", "fifthsent":"कुत्ता सो गया बिल्लियों को मारकर", "sixthsent":"कुत्ता सो गया मारकर बिल्लियों को", "seventhsent":"सो गया कुत्ता बिल्लियों को मारकर", "eightsent":"सो गया कुत्ता मारकर बिल्लियों को"},' +
-			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
-			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
+	       		'{"firstsent":"राम सोया और श्याम भी", "secondsent":"श्याम सोया और राम भी", "thirdsent":"सोया श्याम और राम भी" , "fourthsent":"सोया राम और श्याम भी"},' +
+	       		'{"firstsent":"मैंने उसे बताया कि राम सो रहा है", "secondsent":"मैंने उसे बताया कि सो रहा है राम", "thirdsent":"उसे मैंने बताया कि राम सो रहा है", "fourthsent":"उसे मैंने बताया कि सो रहा है राम", "fifthsent":"मैंने बताया उसे कि राम सो रहा है", "sixthsent":"मैंने बताया उसे कि सो रहा है राम", "seventhsent":"उसे बताया मैंने कि राम सो रहा है", "eightsent":"उसे बताया मैंने कि सो रहा है राम", "ninthsent":"बताया मैंने उसे कि राम सो रहा है", "tenthsent":"बताया मैंने उसे कि सो रहा है राम", "eleventhsent":"बताया उसे मैंने कि राम सो रहा है", "twelvesent":"बताया उसे मैंने कि सो रहा है राम" },' +
+	       		'{"firstsent":"राम खाकर सोया", "secondsent":"खाकर राम सोया", "thirdsent":"राम सोया खाकर" , "fourthsent":"खाकर सोया राम", "fifthsent":"सोया राम खाकर", "sixthsent":"सोया खाकर राम"},' +
+	       		'{"firstsent":"बिल्लियों को मारकर कुत्ता सो गया", "secondsent":"मारकर बिल्लियों को कुत्ता सो गया", "thirdsent":"बिल्लियों को मारकर सो गया कुत्ता" , "fourthsent":"मारकर बिल्लियों को सो गया कुत्ता", "fifthsent":"कुत्ता सो गया बिल्लियों को मारकर", "sixthsent":"कुत्ता सो गया मारकर बिल्लियों को", "seventhsent":"सो गया कुत्ता बिल्लियों को मारकर", "eightsent":"सो गया कुत्ता मारकर बिल्लियों को"},' +
+	       		'{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
+	       		'{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}';
 obj1 = JSON.parse(hinsent);
-var formedsent = "",addbtn="", len = 0, formedwordcnt = 0, sentid;
+
+var formedsent = "",addbtn="", len = 0, formedwordcnt = 0, sentid, moans="";
 			 
 function langsel(){	
     if(document.getElementById("default").selected)
@@ -34,6 +35,7 @@ function langsel(){
 	document.getElementById("checkw").innerHTML = "";
 	document.getElementById("checkr").innerHTML = "";
 	document.getElementById("crtansbtn").innerHTML = "";
+	document.getElementById("getsent").innerHTML = "";
     if(document.getElementById("eng").selected){
 		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
@@ -114,6 +116,7 @@ function reform() {
 	document.getElementById("checkr").innerHTML = "";
 	document.getElementById("checkw").innerHTML = "";
 	document.getElementById("crtansbtn").innerHTML = "";
+	document.getElementById("getsent").innerHTML = "";
 }
 
 function check() {
@@ -122,15 +125,36 @@ function check() {
 		document.getElementById("checkr").innerHTML = "Right answer!!!";
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
-		document.getElementById("crtansbtn").innerHTML = "<button>Get Correct Sentence</button>";
+		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'getengsent()'>Get Correct Sentence</button>";
 		}
 	}
 	else if(document.getElementById("hin").selected) {
-	if(obj1.sentences[sentind].firstsent == formedsent.trim() || obj1.sentences[sentind].secondsent == formedsent.trim() || obj1.sentences[sentind].thirdsent == formedsent.trim() || obj1.sentences[sentind].fourthsent == formedsent.trim() || obj1.sentences[sentind].fifthsent == formedsent.trim() || obj1.sentences[sentind].sixthsent == formedsent.trim() || obj1.sentences[sentind].seventhsent == formedsent.trim() || obj1.sentences[sentind].eightsent == formedsent.trim() || obj1.sentences[sentind].ninthsent == formedsent.trim() || obj1.sentences[sentind].tenthsent == formedsent.trim() || obj1.sentences[sentind].eightsent == formedsent.trim() || obj1.sentences[sentind].twelvesent == formedsent.trim()) 
+	if(obj1.sentences[sentind].firstsent == formedsent.trim() || obj1.sentences[sentind].secondsent == formedsent.trim() || obj1.sentences[sentind].thirdsent == formedsent.trim() || obj1.sentences[sentind].fourthsent == formedsent.trim() || obj1.sentences[sentind].fifthsent == formedsent.trim() || obj1.sentences[sentind].sixthsent == formedsent.trim() || obj1.sentences[sentind].seventhsent == formedsent.trim() || obj1.sentences[sentind].eightsent == formedsent.trim() || obj1.sentences[sentind].ninthsent == formedsent.trim() || obj1.sentences[sentind].tenthsent == formedsent.trim() || obj1.sentences[sentind].eleventhsent == formedsent.trim() || obj1.sentences[sentind].twelvesent == formedsent.trim()) 
 		document.getElementById("checkr").innerHTML = "Right answer!!!";
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
-		document.getElementById("crtansbtn").innerHTML = "<button>Get Correct Sentence</button>";
+		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'gethinsent()'>Get Correct Sentence</button>";
 		}
 	}			
+}
+function getengsent() {
+	var ans = obj.sentences[sentind].firstsent+'<br>'+obj.sentences[sentind].secondsent+'<br>'+obj.sentences[sentind].thirdsent+'<br>'+obj.sentences[sentind].fourthsent+'<br>'+obj.sentences[sentind].fifthsent+'<br>'+obj.sentences[sentind].sixthsent+'<br>'+obj.sentences[sentind].seventhsent+'<br>'+obj.sentences[sentind].eightsent;
+	moans = ans.replace(/undefined/g,"");
+	document.getElementById("getsent").innerHTML = moans;
+	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
 }	
+
+function gethinsent() {
+	var ans = obj1.sentences[sentind].firstsent+'<br>'+obj1.sentences[sentind].secondsent+'<br>'+obj1.sentences[sentind].thirdsent+'<br>'+obj1.sentences[sentind].fourthsent+'<br>'+obj1.sentences[sentind].fifthsent+'<br>'+obj1.sentences[sentind].sixthsent+'<br>'+obj1.sentences[sentind].seventhsent+'<br>'+obj1.sentences[sentind].eightsent+'<br>'+obj1.sentences[sentind].ninthsent+'<br>'+obj1.sentences[sentind].tenthsent+'<br>'+obj1.sentences[sentind].eleventhsent+'<br>'+obj1.sentences[sentind].twelvesent;
+	moans = ans.replace(/undefined/g,"");
+	document.getElementById("getsent").innerHTML = moans;
+	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
+}
+function toggle() {
+	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'showans()'>Get Answers</button>";
+	document.getElementById("getsent").innerHTML = "";
+}
+function showans() {
+	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
+	document.getElementById("getsent").innerHTML = moans;
+}
