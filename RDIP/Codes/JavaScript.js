@@ -19,7 +19,7 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
-var formedsent = "",addbtn="", len, formedwordcnt = 0;
+var formedsent = "",addbtn="", len = 0, formedwordcnt = 0, sentid;
 			 
 function langsel(){	
     if(document.getElementById("default").selected)
@@ -29,6 +29,10 @@ function langsel(){
 	document.getElementById("formedsent").innerHTML = "";
 	document.getElementById("reformbtn").innerHTML = "";
 	formedsent = "";
+	document.getElementById("chkbtn").innerHTML = "";
+	formedwordcnt = 0;
+	document.getElementById("checkw").innerHTML = "";
+	document.getElementById("checkr").innerHTML = "";
     if(document.getElementById("eng").selected){
 		document.getElementById("demo").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
 		document.getElementById("innerdemo").innerHTML = "(select the buttons in proper order)";
@@ -42,7 +46,7 @@ function langsel(){
     }
 }
 function getRandomengSentence() {
-	var sentind = parseInt(Math.random()*(10));
+	sentind = parseInt(Math.random()*(10));
 	var engrand = obj.sentences[sentind].firstsent;
 	var sentsplit = engrand.split(" ");
 	var arr=[];
@@ -65,7 +69,7 @@ function getRandomengSentence() {
 	}
 }
 function getRandomhinSentence() {
-	var sentind = parseInt(Math.random()*(7));
+	sentind = parseInt(Math.random()*(7));
 	var hinrand = obj1.sentences[sentind].firstsent;
 	var sentsplit = hinrand.split(" ");
 	var arr=[];
@@ -96,7 +100,7 @@ function disword( btnid, btnvalue ) {
 	removebtn.remove();
 	formedwordcnt++;
 	if(formedwordcnt===len)
-		document.getElementById("chkbtn").innerHTML = "<button>Check the correctness of this sentence</button>";
+		document.getElementById("chkbtn").innerHTML = "<button onclick ='check()'>Check the correctness of this sentence</button>";
 }
 function reform() {
 	document.getElementById("randbtn").innerHTML = addbtn.trim();
@@ -106,4 +110,23 @@ function reform() {
 	formedsent = "";
 	formedwordcnt = 0;
 	document.getElementById("chkbtn").innerHTML = "";
+	document.getElementById("checkr").innerHTML = "";
+	document.getElementById("checkw").innerHTML = "";
 }
+
+function check() {
+	if(document.getElementById("eng").selected) {
+	if(obj.sentences[sentind].firstsent == formedsent.trim() || obj.sentences[sentind].secondsent == formedsent.trim() || obj.sentences[sentind].thirdsent == formedsent.trim() || obj.sentences[sentind].fourthsent == formedsent.trim() || obj.sentences[sentind].fifthsent == formedsent.trim() || obj.sentences[sentind].sixthsent == formedsent.trim() || obj.sentences[sentind].seventhsent == formedsent.trim() || obj.sentences[sentind].eightsent == formedsent.trim()) 
+		document.getElementById("checkr").innerHTML = "Right answer!!!";
+	else {
+		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
+		}
+	}
+	else if(document.getElementById("hin").selected) {
+	if(obj1.sentences[sentind].firstsent == formedsent.trim() || obj1.sentences[sentind].secondsent == formedsent.trim() || obj1.sentences[sentind].thirdsent == formedsent.trim() || obj1.sentences[sentind].fourthsent == formedsent.trim() || obj1.sentences[sentind].fifthsent == formedsent.trim() || obj1.sentences[sentind].sixthsent == formedsent.trim() || obj1.sentences[sentind].seventhsent == formedsent.trim() || obj1.sentences[sentind].eightsent == formedsent.trim() || obj1.sentences[sentind].ninthsent == formedsent.trim() || obj1.sentences[sentind].tenthsent == formedsent.trim() || obj1.sentences[sentind].eightsent == formedsent.trim() || obj1.sentences[sentind].twelvesent == formedsent.trim()) 
+		document.getElementById("checkr").innerHTML = "Right answer!!!";
+	else {
+		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
+		}
+	}			
+}	
