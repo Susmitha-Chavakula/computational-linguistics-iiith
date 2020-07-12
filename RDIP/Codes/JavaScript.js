@@ -19,7 +19,7 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 			       '{"firstsent":"एक लाल किताब वहाँ है", "secondsent":"एक लाल किताब है वहाँ", "thirdsent":"वहाँ है एक लाल किताब" , "fourthsent":"है वहाँ एक लाल किताब"},' +
 			       '{"firstsent":"एक बड़ी सी किताब वहाँ है", "secondsent":"एक बड़ी सी किताब है वहाँ", "thirdsent":"बड़ी सी एक किताब वहाँ है" , "fourthsent":"बड़ी सी एक किताब है वहाँ", "fifthsent":"वहाँ है एक बड़ी सी किताब", "sixthsent":"वहाँ है बड़ी सी एक किताब", "seventhsent":"है वहाँ एक बड़ी सी किताब", "eightsent":"है वहाँ बड़ी सी एक किताब" }]}' ;
 obj1 = JSON.parse(hinsent);
-var formedsent = "",addbtn="";
+var formedsent = "",addbtn="", len, formedwordcnt = 0;
 			 
 function langsel(){	
     if(document.getElementById("default").selected)
@@ -50,7 +50,7 @@ function getRandomengSentence() {
 		arr[i]=0;
 	}
 	var k,btnidval="",btnid=0,formedsent="";
-	var len = sentsplit.length;
+	len = sentsplit.length;
 	addbtn = "";
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
@@ -73,7 +73,7 @@ function getRandomhinSentence() {
 		arr[i]=0;
 	}
 	var k,btnidval="",btnid=0,formedsent="";
-	var len = sentsplit.length;
+	len = sentsplit.length;
 	addbtn = "";
 	while(btnid!=(len)) {
 		k = sentsplit[parseInt(Math.random()*(len))];
@@ -94,6 +94,9 @@ function disword( btnid, btnvalue ) {
 	document.getElementById("formedsent").innerHTML = formedsent;
 	var removebtn = document.getElementById(btnid);
 	removebtn.remove();
+	formedwordcnt++;
+	if(formedwordcnt===len)
+		document.getElementById("chkbtn").innerHTML = "<button>Check the correctness of this sentence</button>";
 }
 function reform() {
 	document.getElementById("randbtn").innerHTML = addbtn.trim();
@@ -101,4 +104,6 @@ function reform() {
 	document.getElementById("innersentdemo").innerHTML ="";
 	document.getElementById("reformbtn").innerHTML = "";
 	formedsent = "";
+	formedwordcnt = 0;
+	document.getElementById("chkbtn").innerHTML = "";
 }
