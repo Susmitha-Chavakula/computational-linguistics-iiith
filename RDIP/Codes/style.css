@@ -22,11 +22,11 @@ h2 {
 .displaytxt1 p, .displaytxt3 p{
    color : #0000AA;
    font-weight : 700;
-   font-size : 16px;
+   font-size : 19px;
 }
 .displaytxt2 p, .displaytxt3 i{
    color : #0000FF;
-   font-size : 14px;
+   font-size : 16px;
    font-style : italic;
 }
 button {

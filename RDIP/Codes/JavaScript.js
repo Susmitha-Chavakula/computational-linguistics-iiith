@@ -1,4 +1,5 @@
-﻿var engsent = '{"sentences":['+'{"firstsent":"John ate an apple before afternoon", "secondsent":"before afternoon John ate an apple", "thirdsent":"John before afternoon ate an apple" },' +
+﻿//english sentences
+var engsent = '{"sentences":['+'{"firstsent":"John ate an apple before afternoon", "secondsent":"before afternoon John ate an apple", "thirdsent":"John before afternoon ate an apple" },' +
          		    '{"firstsent":"some students like to study in the night", "secondsent":"at night some students like to study"},' +
 			    '{"firstsent":"John and Mary went to church", "secondsent":"Mary and John went to church"},' +
 			    '{"firstsent":"John went to church after eating", "secondsent":"after eating John went to church", "thirdsent":"John after eating went to church" },' +
@@ -10,7 +11,7 @@
          		    '{"firstsent":"I told her that I bought a book yesterday", "secondsent":"I told her yesterday that I bought a book", "thirdsent":"yesterday I told her that I bought a book", "fourthsent":"I bought a book that I told her yesterday", "fifthsent":"I bought a book yesterday that I told her", "sixthsent":"yesterday I bought a book that I told her" }]}';
 obj = JSON.parse(engsent);
 
-
+//hindi sentences
 var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम बाजार गयें", "secondsent":"राम और श्याम गयें बाजार", "thirdsent":"बाजार गयें राम और श्याम" , "fourthsent":"गयें बाजार राम और श्याम"},' +
 	       		'{"firstsent":"राम सोया और श्याम भी", "secondsent":"श्याम सोया और राम भी", "thirdsent":"सोया श्याम और राम भी" , "fourthsent":"सोया राम और श्याम भी"},' +
 	       		'{"firstsent":"मैंने उसे बताया कि राम सो रहा है", "secondsent":"मैंने उसे बताया कि सो रहा है राम", "thirdsent":"उसे मैंने बताया कि राम सो रहा है", "fourthsent":"उसे मैंने बताया कि सो रहा है राम", "fifthsent":"मैंने बताया उसे कि राम सो रहा है", "sixthsent":"मैंने बताया उसे कि सो रहा है राम", "seventhsent":"उसे बताया मैंने कि राम सो रहा है", "eightsent":"उसे बताया मैंने कि सो रहा है राम", "ninthsent":"बताया मैंने उसे कि राम सो रहा है", "tenthsent":"बताया मैंने उसे कि सो रहा है राम", "eleventhsent":"बताया उसे मैंने कि राम सो रहा है", "twelvesent":"बताया उसे मैंने कि सो रहा है राम" },' +
@@ -21,7 +22,8 @@ var hinsent = '{"sentences":['+'{"firstsent":"राम और श्याम �
 obj1 = JSON.parse(hinsent);
 
 var formedsent = "",addbtn="", len = 0, formedwordcnt = 0, sentid, moans="";
-			 
+
+//language selected			 
 function langsel(){	
     if(document.getElementById("default").selected)
 		alert('Select Language');
@@ -48,6 +50,7 @@ function langsel(){
 	}
     }
 }
+//generate eng random sentence
 function getRandomengSentence() {
 	sentind = parseInt(Math.random()*(10));
 	var engrand = obj.sentences[sentind].firstsent;
@@ -71,6 +74,7 @@ function getRandomengSentence() {
 		randbtn.innerHTML = addbtn.trim();
 	}
 }
+//generate hin random sentence
 function getRandomhinSentence() {
 	sentind = parseInt(Math.random()*(7));
 	var hinrand = obj1.sentences[sentind].firstsent;
@@ -93,7 +97,7 @@ function getRandomhinSentence() {
 		randbtn.innerHTML = addbtn.trim();
 	}
 }
-
+//selected sent
 function disword( btnid, btnvalue ) {
 	document.getElementById("reformbtn").innerHTML = "<button onclick = 'reform()'>Re-form the sentence</button>";
 	document.getElementById("innersentdemo").innerHTML = "Formed Sentence (<i>after selecting words</i>):";
@@ -105,6 +109,7 @@ function disword( btnid, btnvalue ) {
 	if(formedwordcnt===len)
 		document.getElementById("chkbtn").innerHTML = "<button onclick ='check()'>Check the correctness of this sentence</button>";
 }
+//reset button
 function reform() {
 	document.getElementById("randbtn").innerHTML = addbtn.trim();
 	document.getElementById("formedsent").innerHTML = "";
@@ -118,7 +123,7 @@ function reform() {
 	document.getElementById("crtansbtn").innerHTML = "";
 	document.getElementById("getsent").innerHTML = "";
 }
-
+//checks correctness of sentence
 function check() {
 	if(document.getElementById("eng").selected) {
 	if(obj.sentences[sentind].firstsent == formedsent.trim() || obj.sentences[sentind].secondsent == formedsent.trim() || obj.sentences[sentind].thirdsent == formedsent.trim() || obj.sentences[sentind].fourthsent == formedsent.trim() || obj.sentences[sentind].fifthsent == formedsent.trim() || obj.sentences[sentind].sixthsent == formedsent.trim() || obj.sentences[sentind].seventhsent == formedsent.trim() || obj.sentences[sentind].eightsent == formedsent.trim()) 
@@ -126,6 +131,7 @@ function check() {
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
 		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'getengsent()'>Get Correct Sentence</button>";
+		document.getElementById("getsent").innerHTML = "";
 		}
 	}
 	else if(document.getElementById("hin").selected) {
@@ -134,27 +140,39 @@ function check() {
 	else {
 		document.getElementById("checkw").innerHTML = "Wrong answer!!!"; 
 		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'gethinsent()'>Get Correct Sentence</button>";
+		document.getElementById("getsent").innerHTML = "";
 		}
 	}			
 }
+//eng crt ans
 function getengsent() {
 	var ans = obj.sentences[sentind].firstsent+'<br>'+obj.sentences[sentind].secondsent+'<br>'+obj.sentences[sentind].thirdsent+'<br>'+obj.sentences[sentind].fourthsent+'<br>'+obj.sentences[sentind].fifthsent+'<br>'+obj.sentences[sentind].sixthsent+'<br>'+obj.sentences[sentind].seventhsent+'<br>'+obj.sentences[sentind].eightsent;
 	moans = ans.replace(/undefined/g,"");
 	document.getElementById("getsent").innerHTML = moans;
 	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
 }	
-
+//hin crt ans
 function gethinsent() {
 	var ans = obj1.sentences[sentind].firstsent+'<br>'+obj1.sentences[sentind].secondsent+'<br>'+obj1.sentences[sentind].thirdsent+'<br>'+obj1.sentences[sentind].fourthsent+'<br>'+obj1.sentences[sentind].fifthsent+'<br>'+obj1.sentences[sentind].sixthsent+'<br>'+obj1.sentences[sentind].seventhsent+'<br>'+obj1.sentences[sentind].eightsent+'<br>'+obj1.sentences[sentind].ninthsent+'<br>'+obj1.sentences[sentind].tenthsent+'<br>'+obj1.sentences[sentind].eleventhsent+'<br>'+obj1.sentences[sentind].twelvesent;
 	moans = ans.replace(/undefined/g,"");
 	document.getElementById("getsent").innerHTML = moans;
 	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
 }
+
+//toggle between hide and show sentences
 function toggle() {
-	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'showans()'>Get Answers</button>";
-	document.getElementById("getsent").innerHTML = "";
-}
-function showans() {
-	document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
-	document.getElementById("getsent").innerHTML = moans;
+	var btntxt = document.getElementById("crtansbtn");
+	var senttxt = document.getElementById("getsent");
+	$(document).ready(function() {
+	      $("#crtansbtn").ready(function() {
+		     $("#getsent").toggle();
+		     });
+		});
+	if(senttxt.innerHTML === moans) {
+		senttxt.innerHTML = "";
+		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Get Answers</button>";
+	} else {
+		senttxt.innerHTML = moans;
+		document.getElementById("crtansbtn").innerHTML = "<button onclick = 'toggle()'>Hide the correct Sentence</button>";
+	}
 }
