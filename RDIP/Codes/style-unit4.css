@@ -32,7 +32,7 @@ table {
 td {
    padding : 8px;
    height : 30px;
-   border : 1px solid #ddd;
+   border : 2px solid #ddd;
 }
 #token, #type {
    padding : 3px;
@@ -44,4 +44,8 @@ button{
    padding : 2px;
    padding-left : 6px;
    padding-right : 6px;
+   margin-bottom : 22px;
 }
+#status {
+   font-size : 20px;
+} 
