@@ -30,8 +30,7 @@ function checkVal() {
 	words = words.replace(/[ ]{2,}/gi," ");
 	var uniqueword = words.toLowerCase().split(' ');
 	words = words.split(' ').length;
-	
-	for ( var i = 0; i <uniqueword.length; i++)
+	for ( var i = 0; i <uniqueword.length; i++) 
 		arr[i]=0;
 	var i = 0, k;
 	while(i!=uniqueword.length) {
@@ -42,6 +41,7 @@ function checkVal() {
 		}
 		i++;
 	}
+	
 	var tok = parseInt(document.getElementById('token').value);
 	var typ = parseInt(document.getElementById('type').value);
 	if(words===tok)
@@ -68,5 +68,11 @@ function checkVal() {
 function newtypes() {
 	document.getElementById('submitbtn').innerHTML = "<br><p id='newtypestmt'>Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p>";
 	document.getElementById('status').innerHTML = "<p id='newtypetxt'>#new types:</p><input type='text' id='newtype' value=''/>";
-	document.getElementById('contbtn').innerHTML =  "<button>Submit</button>";
+	document.getElementById('contbtn').innerHTML =  "<button onclick='getstemans()'>Submit</button>";
+}
+function getstemans() {
+	var stemmer = new Snowball('English');
+	stemmer.setCurrent('abbreviations');
+	stemmer.stem();
+	console.log(stemmer.getCurrent());
 }
