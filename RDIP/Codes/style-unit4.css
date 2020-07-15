@@ -34,7 +34,7 @@ td {
    height : 30px;
    border : 2px solid #ddd;
 }
-#token, #type {
+#token, #type, #newtype{
    padding : 3px;
    width : 65px;
 }
@@ -49,3 +49,13 @@ button{
 #status {
    font-size : 20px;
 } 
+#newtypetxt {
+   font-family : Lucida Sans Unicode;
+   font-size : 16px;
+}
+#newtypestmt {
+   font-family : Lucida Sans Unicode;
+   font-size : 16px;
+   padding-top : 10px;
+   padding-bottom : 20px;
+}
