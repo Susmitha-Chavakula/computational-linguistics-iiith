@@ -77,10 +77,18 @@ function newtypes() {
 	document.getElementById('contbtn').innerHTML =  "<button onclick='getstemans()'>Submit</button>";
 }
 function getstemans() {
-	var stemmer = new Snowball('English');
-	stemmer.setCurrent('abbreviations');
-	stemmer.stem();
-	console.log(stemmer.getCurrent());
+	var i = 0, k;
+	while(i!=stemarr.length) {
+		k = stemarr[i];
+		if(brr[stemarr.indexOf(k)]==0){
+			brr[stemarr.indexOf(k)]=1;
+			stemwordcount++;
+			console.log(k);
+		}
+		i++;
+	}
+	console.log(stemwordcount);
+	
 }
 function stemwords(word) {
 	var wordStemmer = new Snowball('English');
