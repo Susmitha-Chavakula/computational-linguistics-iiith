@@ -77,17 +77,22 @@ function newtypes() {
 	document.getElementById('contbtn').innerHTML =  "<button onclick='getstemans()'>Submit</button>";
 }
 function getstemans() {
+	var userstemVal= parseInt(document.getElementById('newtype').value);
 	var i = 0, k;
 	while(i!=stemarr.length) {
 		k = stemarr[i];
 		if(brr[stemarr.indexOf(k)]==0){
 			brr[stemarr.indexOf(k)]=1;
 			stemwordcount++;
-			console.log(k);
+			//console.log(k);
 		}
 		i++;
 	}
 	console.log(stemwordcount);
+	if(userstemVal===stemwordcount)
+		console.log('right');
+	else
+		console.log('wrong');
 	
 }
 function stemwords(word) {
