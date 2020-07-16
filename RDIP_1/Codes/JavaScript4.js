@@ -4,6 +4,7 @@ var stoplist = ['were','are','is','had','found','grown','ate','me','heard','this
 var stoplist1 = ['was','was','was','have','find','grew','eat','i','hear','that','he','he','he','do','do','run'];
 var para = "",stemarr=[],brr=[],stemwordcount=0;
 
+//selected corpus along with table
 function corpsel() {
 	if(document.getElementById("default").selected)
 		alert('Select a corpus');
@@ -28,16 +29,16 @@ function corpsel() {
 	document.getElementById("submitbtn").innerHTML = "<button onclick='checkVal()'>Submit</button>";
 	}
 }
+//count total & unique words
 function checkVal() {
    	var words = para, arr=[], uniquewordcount = 0, f1=0, f2=0;
- 	words = words.replace(/[^\w\s]/gi,"");
-	words = words.replace(/[ ]{2,}/gi," ");
+ 	words = words.replace(/[^\w\s]/gi,"");  //replaces special characters
+	words = words.replace(/[ ]{2,}/gi," "); //changes spaces to 1
 	var uniqueword = words.toLowerCase().split(' ');
 	words = words.split(' ').length;
-	for ( var i = 0; i <uniqueword.length; i++) {
+	for ( var i = 0; i <uniqueword.length; i++) 
 		arr[i]=0;
 		
-	}
 	var i = 0, k,j=0;
 	while(i!=uniqueword.length) {
 		k = uniqueword[i];
@@ -49,7 +50,7 @@ function checkVal() {
 				//console.log(stemarr[j]);
 			}
 			else	
-			stemarr[j]=stemwords(k);
+			stemarr[j]=stemwords(k);	//calls stemmer function
 			brr[j]=0;
 			j++;
 			//console.log(k);
@@ -79,12 +80,13 @@ function checkVal() {
 	}
 	
 }
-
+//user input
 function newtypes() {
 	document.getElementById('submitbtn').innerHTML = "<br><p id='newtypestmt'>Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p>";
 	document.getElementById('status').innerHTML = "<p id='newtypetxt'>#new types:</p><input type='text' id='newtype' value=''/>";
 	document.getElementById('contbtn').innerHTML =  "<button onclick='getstemans()'>Submit</button>";
 }
+//get output final
 function getstemans() {
 	var userstemVal= parseInt(document.getElementById('newtype').value);
 	var i = 0, k;
@@ -107,6 +109,7 @@ function getstemans() {
 	}
 	
 }
+//stemmer
 function stemwords(word) {
 	var wordStemmer = new Snowball('English');
 	wordStemmer.setCurrent(word);

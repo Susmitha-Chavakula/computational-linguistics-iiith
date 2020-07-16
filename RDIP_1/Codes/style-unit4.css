@@ -34,11 +34,11 @@ td {
    height : 30px;
    border : 2px solid #ddd;
 }
-#token, #type, #newtype{
+#token, #type, #newtype {
    padding : 3px;
    width : 65px;
 }
-button{
+button {
    margin-top : 24px;
    font-size : 15px;
    padding : 2px;
