@@ -1,0 +1,11 @@
+Functionalities:
+~~~~~~~~~~~~~~~
+
+(a). Language dropdown: From the two available languages(english, hindi) select a language.
+(b). Sentence dropdown: After selecting a language, select a sentence from this dropdown.
+(c). After selecting sentence, a table with seperate rows of each word with a seperate dropdown is displayed.
+(d). Select the parts of speech of each word and click submit to check your answers.
+(e). If all your answers were right, a seperate green tick appears on corresponding rows.
+(f). If some or all of your answers were wrong, a red cross appears on corresponding rows and "Get Answer" button wiil be displayed.
+(g). When you click on get answer, last column will be displayed with all correct answers and this button is changed to "Hide Answer".
+(h). The hide answer button is a toggle button, i.e. when you click this button,this is changed to "Get Answer" and the answers were hidden.
