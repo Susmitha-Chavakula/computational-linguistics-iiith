@@ -5,6 +5,7 @@
         <title>Virtual Labs</title>
 	<link rel="icon" href="..\..\.\RDIP_2\..\src\.\themes\maroon-grid\images\logo.jpg" type="image/x-icon">
 
+	<link rel = "stylesheet" type = "text/css" href = "unit5-style.css">
 	<script src = "unit5-JavaScript.js"></script>
 </head>
 
@@ -12,6 +13,13 @@
 
 	<h2>Experiment</h2>
    
+	<select id="dropdownbox" onchange = "langsel()">
+	      <option id="default" value="Select Language">---Select Language---</option>
+	      <option id="eng" value="English">English</option>
+   	      <option id="hin" value="Hindi">Hindi</option>
+	</select>
+	
+	<p id="dropdownsent"></p>
 
 </body>
 </html>
