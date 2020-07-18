@@ -2,7 +2,7 @@
 
 var hinsent = ['राम ने सीता के लिए फल तोड़ा।','छोटे बच्चे पाठशाला जल्दी आयेंगे।','मेहनत का फल मीठा होता है।','वाह! वह खूबसूरत है।','पेड़ से पत्ते गिर गए।'];
 
-var sent="", posdrop;
+var sent="", posdrop, posVal;
 function langsel() {
 	if(document.getElementById('default').selected)
 		alert('Select Language');
@@ -10,6 +10,8 @@ function langsel() {
 		document.getElementById('dropdownsent').innerHTML = "<select id='dropdownbox2' onchange='dis()'><option id='default1' value='Select a sentence'>---Select a sentence---</option><option id='s1'></option><option id='s2'></option><option id='s3'></option><option id='s4'></option><option id='s5'></option></select>";
 		document.getElementById('txt').innerHTML = "";
 		document.getElementById('postable').innerHTML = "";
+		document.getElementById('submitbtn').innerHTML = "";
+		posVal=[];
 		if(document.getElementById('eng').selected){
 			document.getElementById('s1').innerHTML = engsent[0];
 			document.getElementById('s2').innerHTML = engsent[1];
@@ -27,7 +29,7 @@ function langsel() {
 	}
 }
 function dis() {
-	sent = "";
+	sent = "",posVal=[];
 	document.getElementById('txt').innerHTML = "<i>Select the POS tag for corresponding words</i>";
 	if(document.getElementById('eng').selected){
 	if(document.getElementById('s1').selected)
@@ -59,8 +61,30 @@ function dis() {
 	}
 	sent=sent.split(" ");
 	var col="<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td></td><td></td></tr>";
-	for(var i = 0; i < sent.length; i++)
-		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td><select id='posdropdown"+i+"' class='posdropdown'>"+posdrop+"</select></td><td></td><td></td></tr>";
-
+	for(var i = 0; i < sent.length; i++){
+		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td><select id='posdropdown"+i+"' class='posdropdown' onchange='possel(this.id,this.value)'>"+posdrop+"</select></td><td></td><td></td></tr>";
+		posVal[i]="Noun";
+	}
 	document.getElementById('postable').innerHTML = col.trim();
+	document.getElementById('submitbtn').innerHTML = "<button onclick='userposvalues()'>Submit</button>";
+}	
+function possel(id, value) {
+	if(id==='posdropdown0')
+		posVal[0]=value;
+	else if(id==='posdropdown1')
+		posVal[1]=value;
+	else if(id==='posdropdown2')
+		posVal[2]=value;
+	else if(id==='posdropdown3')
+		posVal[3]=value;
+	else if(id==='posdropdown4')
+		posVal[4]=value;
+	else if(id==='posdropdown5')
+		posVal[5]=value;
+	else if(id==='posdropdown6')
+		posVal[6]=value;
+	
+}
+function userposvalues() {
+	console.log(posVal,posVal.length);
 }
