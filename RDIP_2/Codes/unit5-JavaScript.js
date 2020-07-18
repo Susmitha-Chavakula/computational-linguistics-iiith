@@ -2,7 +2,7 @@
 
 var hinsent = ['राम ने सीता के लिए फल तोड़ा।','छोटे बच्चे पाठशाला जल्दी आयेंगे।','मेहनत का फल मीठा होता है।','वाह! वह खूबसूरत है।','पेड़ से पत्ते गिर गए।'];
 
-var sent="";
+var sent="", posdrop;
 function langsel() {
 	if(document.getElementById('default').selected)
 		alert('Select Language');
@@ -40,6 +40,8 @@ function dis() {
 		sent=engsent[3];
 	else if(document.getElementById('s5').selected)
 		sent=engsent[4];
+	sent=sent.replace(".","");
+	posdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Determiner'>Determiner</option><option id='pos7' value='Preposition'>Preposition</option><option id='pos8' value='Conjunction'>Conjunction</option><option id='pos9' value='Interjection'>Interjection</option>";
 	}
 	else if(document.getElementById('hin').selected){
 	if(document.getElementById('s1').selected)
@@ -52,12 +54,13 @@ function dis() {
 		sent=hinsent[3];
 	else if(document.getElementById('s5').selected)
 		sent=hinsent[4];
+	sent=sent.replace("।","");
+	posdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Postposition'>Postposition</option><option id='pos7' value='Conjunction'>Conjunction</option><option id='pos8' value='Interjection'>Interjection</option>";
 	}
 	sent=sent.split(" ");
 	var col="<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td></td><td></td></tr>";
 	for(var i = 0; i < sent.length; i++)
-		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td></td><td></td><td></td></tr>";
+		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td><select id='posdropdown"+i+"' class='posdropdown'>"+posdrop+"</select></td><td></td><td></td></tr>";
 
 	document.getElementById('postable').innerHTML = col.trim();
-
 }

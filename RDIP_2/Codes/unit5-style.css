@@ -38,3 +38,8 @@ td {
 #rowhead {
    text-align : center;
 } 
+.posdropdown {
+   height : 22px;
+   font-family : arial;
+   font-size : 17px;
+}
