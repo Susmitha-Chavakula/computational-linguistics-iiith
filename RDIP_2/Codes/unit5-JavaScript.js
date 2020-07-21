@@ -77,7 +77,7 @@ function dis() {
 	sent=sent.split(" ");
 	var col="<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td></td><td></td></tr>";
 	for(var i = 0; i < sent.length; i++){
-		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td><select id='posdropdown"+i+"' class='posdropdown' onchange='possel(this.id,this.value)'>"+posdrop+"</select></td><td id='img"+i+"'></td><td></td></tr>";
+		col = col +"<tr id='id"+i+"'><td>"+sent[i]+"</td><td><select id='posdropdown"+i+"' class='posdropdown' onchange='possel(this.id,this.value)'>"+posdrop+"</select></td><td id='img"+i+"'></td><td id='ans"+i+"'></td></tr>";
 		posVal[i]="Noun";
 	}
 	document.getElementById('postable').innerHTML = col.trim();
@@ -146,5 +146,16 @@ function posfn() {
 		}}
 	}
 	if(f==1)
-		document.getElementById('getbtn').innerHTML = '<button>Get Answer</button>';
+		document.getElementById('getbtn').innerHTML = '<button onclick="getans()">Get Answer</button>';
+}
+function getans() {
+	var ansid = ['ans0','ans1','ans2','ans3','ans4','ans5','ans6'];
+	if(document.getElementById('eng').selected){
+	for(var i = 0; i < sent.length; i++)
+		document.getElementById(ansid[i]).innerHTML = engans[i];
+	}
+	else if(document.getElementById('hin').selected){
+	for(var i = 0; i < sent.length; i++)
+		document.getElementById(ansid[i]).innerHTML = hinans[index][i];
+	}
 }
