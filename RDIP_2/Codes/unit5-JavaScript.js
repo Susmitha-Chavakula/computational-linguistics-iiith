@@ -158,4 +158,11 @@ function getans() {
 	for(var i = 0; i < sent.length; i++)
 		document.getElementById(ansid[i]).innerHTML = hinans[index][i];
 	}
+	document.getElementById('getbtn').innerHTML = '<button onclick="hideans()">Hide Answer</button>'
+}
+function hideans() {
+	var ansid = ['ans0','ans1','ans2','ans3','ans4','ans5','ans6'];
+	for(var i = 0; i < sent.length; i++)
+		document.getElementById(ansid[i]).innerHTML = "";
+	document.getElementById('getbtn').innerHTML = '<button onclick="getans()">Get Answer</button>'
 }
