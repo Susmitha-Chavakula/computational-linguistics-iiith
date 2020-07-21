@@ -4,7 +4,7 @@ var hinsent = ['राम ने सीता के लिए फल तोड़�
 
 var hinans = [["Noun","Postposition","Noun","Postposition","Postposition","Noun","Verb"],["Adjective","Noun","Noun","Adverb","Verb"],["Noun","Postposition","Noun","Adjective","Verb","Verb"],["Interjection","Pronoun","Adjective","Verb"],["Noun","Postposition","Noun","Verb","Verb"]];
 
-var sent="", posdrop, posVal,sent1="",engans=[],index;
+var sent="", posdrop, posVal,sent1="",engans=[],index,f=0;
 function langsel() {
 	if(document.getElementById('default').selected)
 		alert('Select Language');
@@ -13,6 +13,7 @@ function langsel() {
 		document.getElementById('txt').innerHTML = "";
 		document.getElementById('postable').innerHTML = "";
 		document.getElementById('submitbtn').innerHTML = "";
+		document.getElementById('getbtn').innerHTML = "";
 		posVal=[];
 		if(document.getElementById('eng').selected){
 			document.getElementById('s1').innerHTML = engsent[0];
@@ -130,16 +131,20 @@ function posfn() {
 	for(var i=0;i<sent.length;i++){
 		if(posVal[i]==engans[i])
 			document.getElementById(idarr[i]).innerHTML='<img src="https://png.vector.me/files/images/1/2/123189/green_tick_clip_art.jpg" width="30" height="30">';
-		else
+		else{
+			f=1;
 			document.getElementById(idarr[i]).innerHTML='<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGsrDscW0GQmdjrKLj2ahgZC_xTMRq4NUMRdka4ii5cNlQYlo&s" width="30" height="30">';
-	}
+	}}
 	}
 	else if(document.getElementById('hin').selected){
 		for(var i = 0; i < sent.length; i++){
 			if(posVal[i]==hinans[index][i])
 				document.getElementById(idarr[i]).innerHTML='<img src="https://png.vector.me/files/images/1/2/123189/green_tick_clip_art.jpg" width="30" height="30">';
-			else
+			else	{
+				f=1;
 				document.getElementById(idarr[i]).innerHTML='<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGsrDscW0GQmdjrKLj2ahgZC_xTMRq4NUMRdka4ii5cNlQYlo&s" width="30" height="30">';
-		}
+		}}
 	}
+	if(f==1)
+		document.getElementById('getbtn').innerHTML = '<button>Get Answer</button>';
 }
