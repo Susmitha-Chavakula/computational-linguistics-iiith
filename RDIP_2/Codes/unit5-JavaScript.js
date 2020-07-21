@@ -4,7 +4,8 @@ var hinsent = ['राम ने सीता के लिए फल तोड़�
 
 var hinans = [["Noun","Postposition","Noun","Postposition","Postposition","Noun","Verb"],["Adjective","Noun","Noun","Adverb","Verb"],["Noun","Postposition","Noun","Adjective","Verb","Verb"],["Interjection","Pronoun","Adjective","Verb"],["Noun","Postposition","Noun","Verb","Verb"]];
 
-var sent="", posdrop, posVal,sent1="",engans=[],index,f=0;
+var sent="", posdrop, posVal,engans=[],index,f=0;
+//language selection
 function langsel() {
 	if(document.getElementById('default').selected)
 		alert('Select Language');
@@ -31,9 +32,11 @@ function langsel() {
 		}
 	}
 }
+//sentence display table
 function dis() {
-	sent = "",posVal=[],sent1="",engans=[];
+	sent = "",posVal=[],engans=[],f=0;
 	document.getElementById('txt').innerHTML = "<i>Select the POS tag for corresponding words</i>";
+	document.getElementById('getbtn').innerHTML = "";
 	if(document.getElementById('eng').selected){
 	if(document.getElementById('s1').selected)
 		sent=engsent[0];
@@ -45,7 +48,6 @@ function dis() {
 		sent=engsent[3];
 	else if(document.getElementById('s5').selected)
 		sent=engsent[4];
-	sent1=sent;
 	sent=sent.replace(".","");
 	posdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Determiner'>Determiner</option><option id='pos7' value='Preposition'>Preposition</option><option id='pos8' value='Conjunction'>Conjunction</option><option id='pos9' value='Interjection'>Interjection</option>";
 	}
@@ -70,7 +72,6 @@ function dis() {
 		sent=hinsent[4];
 		index=4;
 	}
-	sent1=sent;
 	sent=sent.replace("।","");
 	posdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Postposition'>Postposition</option><option id='pos7' value='Conjunction'>Conjunction</option><option id='pos8' value='Interjection'>Interjection</option>";
 	}
@@ -81,8 +82,9 @@ function dis() {
 		posVal[i]="Noun";
 	}
 	document.getElementById('postable').innerHTML = col.trim();
-	document.getElementById('submitbtn').innerHTML = "<button onclick='userposvalues()'>Submit</button>";
+	document.getElementById('submitbtn').innerHTML = "<button onclick='posfn()'>Submit</button>";
 }
+//storing user selected dropdown values
 function possel(id, value) {
 	if(id==='posdropdown0')
 		posVal[0]=value;
@@ -100,10 +102,7 @@ function possel(id, value) {
 		posVal[6]=value;
 	
 }
-function userposvalues() {
-	console.log(posVal,posVal.length);
-	posfn();
-}
+//displaying ans status
 function posfn() {
 	var idarr = ['img0','img1','img2','img3','img4','img5','img6'];
 	if(document.getElementById('eng').selected){
@@ -148,6 +147,7 @@ function posfn() {
 	if(f==1)
 		document.getElementById('getbtn').innerHTML = '<button onclick="getans()">Get Answer</button>';
 }
+//display correct ans
 function getans() {
 	var ansid = ['ans0','ans1','ans2','ans3','ans4','ans5','ans6'];
 	if(document.getElementById('eng').selected){
@@ -160,6 +160,7 @@ function getans() {
 	}
 	document.getElementById('getbtn').innerHTML = '<button onclick="hideans()">Hide Answer</button>'
 }
+//toggle
 function hideans() {
 	var ansid = ['ans0','ans1','ans2','ans3','ans4','ans5','ans6'];
 	for(var i = 0; i < sent.length; i++)
